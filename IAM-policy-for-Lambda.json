@@ -1,0 +1,37 @@
+{
+    "Version": "2012-10-17",
+    "Statement": [
+        {
+            "Effect": "Allow",
+            "Action": "logs:CreateLogGroup",
+            "Resource": "arn:aws:logs:us-east-1:ACCOUNT-ID:*"
+        },
+        {
+            "Effect": "Allow",
+            "Action": [
+                "logs:CreateLogStream",
+                "logs:PutLogEvents"
+            ],
+            "Resource": [
+                "arn:aws:logs:us-east-1:ACCOUNT-ID:log-group:/aws/lambda/LAMBDA-FUCTION-NAME:*"
+            ]
+        },
+        {
+            "Effect": "Allow",
+            "Action": [
+                "ec2:DescribeManagedPrefixLists"
+            ],
+            "Resource": "*"
+        },
+        {
+            "Effect": "Allow",
+            "Action": [
+                "ec2:GetManagedPrefixListEntries",
+                "ec2:ModifyManagedPrefixList"
+            ],
+            "Resource": [
+                "arn:aws:ec2:us-east-1:984814284885:prefix-list/PREFIX-LIST-ID"
+            ]
+        }
+    ]
+}
